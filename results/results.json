@@ -1,0 +1,470 @@
+{
+  "generated": "2026-09-25",
+  "command": "python run_benchmark.py --local-only --repeats 5",
+  "repeats": 5,
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD"
+  },
+  "parsers": {
+    "PyPDF": {
+      "kind": "local",
+      "package": "pypdf",
+      "version": "6.19.0",
+      "status": "run"
+    },
+    "PDFMiner": {
+      "kind": "local",
+      "package": "pdfminer.six",
+      "version": "20260107",
+      "status": "run"
+    },
+    "PDFPlumber": {
+      "kind": "local",
+      "package": "pdfplumber",
+      "version": "0.11.10",
+      "status": "run"
+    },
+    "LlamaParse": {
+      "kind": "cloud",
+      "package": "llama-cloud",
+      "version": "2.16.0",
+      "status": "not run (--local-only)"
+    },
+    "AWS Textract": {
+      "kind": "cloud",
+      "package": "boto3",
+      "version": "1.43.102",
+      "status": "not run (--local-only)"
+    }
+  },
+  "documents": [
+    {
+      "id": "multilingual-sample",
+      "file": "multilingual-sample.pdf",
+      "title": "Multilingual stress sample (10 languages, emoji, table, image, handwriting)",
+      "categories": [
+        "multilingual",
+        "rtl",
+        "indic",
+        "table",
+        "image-only-text"
+      ],
+      "licence": "MIT (this repository)",
+      "source_url": null,
+      "reference_characters": 965,
+      "image_only_characters": 169
+    },
+    {
+      "id": "fr-notice-3col",
+      "file": "fr-notice-3col.pdf",
+      "title": "Federal Register Vol. 91 No. 185, p. 61023 (2026-09-25), FR Doc. 2026-19690 and the end of the preceding notice",
+      "categories": [
+        "multi-column"
+      ],
+      "licence": "Public domain: work of the U.S. Government (17 U.S.C. 105)",
+      "source_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-25/pdf/2026-19690.pdf",
+      "reference_characters": 3643,
+      "image_only_characters": 0
+    },
+    {
+      "id": "fr-table",
+      "file": "fr-table.pdf",
+      "title": "Federal Register Vol. 91 No. 9, p. 1449 (2026-01-14), FR Doc. 2026-00535 Table 1 (continued) and the start of the NMFS Olympic Peninsula steelhead finding (Docket No. 260109–0027)",
+      "categories": [
+        "table",
+        "multi-column"
+      ],
+      "licence": "Public domain: work of the U.S. Government (17 U.S.C. 105)",
+      "source_url": "https://www.govinfo.gov/content/pkg/FR-2026-01-14/pdf/2026-00535.pdf",
+      "reference_characters": 5007,
+      "image_only_characters": 0
+    },
+    {
+      "id": "naca-scan",
+      "file": "naca-tn112-scan.pdf",
+      "title": "NACA Technical Note No. 112 (NACA-TN-112), The N.A.C.A. Three-Component Accelerometer (H. J. E. Reid, 1922), page 2: a typewritten page scanned to JPEG",
+      "categories": [
+        "scanned"
+      ],
+      "licence": "Public domain: work of the U.S. Government (NACA); NTRS distribution PUBLIC, GOV_PUBLIC_USE_PERMITTED",
+      "source_url": "https://ntrs.nasa.gov/api/citations/19930080884/downloads/19930080884.pdf",
+      "reference_characters": 1057,
+      "image_only_characters": 1057
+    }
+  ],
+  "scores": [
+    {
+      "document": "multilingual-sample",
+      "parser": "PyPDF",
+      "status": "run",
+      "seconds_median": 0.0664,
+      "seconds_runs": [
+        0.0756,
+        0.0664,
+        0.055,
+        0.056,
+        0.0833
+      ],
+      "characters": 802,
+      "cer": 0.228,
+      "wer": 0.4726,
+      "bow_f1": 0.6899,
+      "lines": 141,
+      "words_per_line": 1.0,
+      "table": {
+        "rows_intact": 0,
+        "rows_total": 4,
+        "cells_found": 8,
+        "cells_total": 8
+      },
+      "rtl": {
+        "Arabic": {
+          "verdict": "logical order",
+          "words_forward": 1.0,
+          "words_letters_reversed": 0.0
+        },
+        "Urdu": {
+          "verdict": "logical order",
+          "words_forward": 1.0,
+          "words_letters_reversed": 0.0
+        }
+      },
+      "indic": {
+        "Hindi": {
+          "intact": false,
+          "words_exact": 0.75
+        },
+        "Bengali": {
+          "intact": false,
+          "words_exact": 0.429
+        }
+      }
+    },
+    {
+      "document": "multilingual-sample",
+      "parser": "PDFMiner",
+      "status": "run",
+      "seconds_median": 0.1259,
+      "seconds_runs": [
+        0.1259,
+        0.1235,
+        0.1258,
+        0.1321,
+        0.1328
+      ],
+      "characters": 817,
+      "cer": 0.3482,
+      "wer": 0.4452,
+      "bow_f1": 0.7015,
+      "lines": 43,
+      "words_per_line": 2.84,
+      "table": {
+        "rows_intact": 0,
+        "rows_total": 4,
+        "cells_found": 8,
+        "cells_total": 8
+      },
+      "rtl": {
+        "Arabic": {
+          "verdict": "out of order, letters reversed",
+          "words_forward": 0.0,
+          "words_letters_reversed": 1.0
+        },
+        "Urdu": {
+          "verdict": "out of order, letters reversed",
+          "words_forward": 0.0,
+          "words_letters_reversed": 1.0
+        }
+      },
+      "indic": {
+        "Hindi": {
+          "intact": false,
+          "words_exact": 0.625
+        },
+        "Bengali": {
+          "intact": false,
+          "words_exact": 0.429
+        }
+      }
+    },
+    {
+      "document": "multilingual-sample",
+      "parser": "PDFPlumber",
+      "status": "run",
+      "seconds_median": 0.132,
+      "seconds_runs": [
+        0.132,
+        0.1263,
+        0.124,
+        0.1325,
+        0.1606
+      ],
+      "characters": 781,
+      "cer": 0.2788,
+      "wer": 0.3767,
+      "bow_f1": 0.6966,
+      "lines": 22,
+      "words_per_line": 5.5,
+      "table": {
+        "rows_intact": 4,
+        "rows_total": 4,
+        "cells_found": 8,
+        "cells_total": 8
+      },
+      "rtl": {
+        "Arabic": {
+          "verdict": "fully reversed",
+          "words_forward": 0.0,
+          "words_letters_reversed": 1.0
+        },
+        "Urdu": {
+          "verdict": "fully reversed",
+          "words_forward": 0.0,
+          "words_letters_reversed": 1.0
+        }
+      },
+      "indic": {
+        "Hindi": {
+          "intact": false,
+          "words_exact": 0.5
+        },
+        "Bengali": {
+          "intact": false,
+          "words_exact": 0.429
+        }
+      }
+    },
+    {
+      "document": "multilingual-sample",
+      "parser": "LlamaParse",
+      "status": "not run (--local-only)"
+    },
+    {
+      "document": "multilingual-sample",
+      "parser": "AWS Textract",
+      "status": "not run (--local-only)"
+    },
+    {
+      "document": "fr-notice-3col",
+      "parser": "PyPDF",
+      "status": "run",
+      "seconds_median": 0.0269,
+      "seconds_runs": [
+        0.0257,
+        0.0269,
+        0.0261,
+        0.0276,
+        0.0271
+      ],
+      "characters": 3905,
+      "cer": 0.0456,
+      "wer": 0.0465,
+      "bow_f1": 0.9781,
+      "lines": 109,
+      "words_per_line": 5.34
+    },
+    {
+      "document": "fr-notice-3col",
+      "parser": "PDFMiner",
+      "status": "run",
+      "seconds_median": 0.078,
+      "seconds_runs": [
+        0.078,
+        0.0761,
+        0.0763,
+        0.1177,
+        0.1275
+      ],
+      "characters": 3985,
+      "cer": 0.0502,
+      "wer": 0.093,
+      "bow_f1": 0.9556,
+      "lines": 144,
+      "words_per_line": 4.24
+    },
+    {
+      "document": "fr-notice-3col",
+      "parser": "PDFPlumber",
+      "status": "run",
+      "seconds_median": 0.2257,
+      "seconds_runs": [
+        0.3391,
+        0.2015,
+        0.2257,
+        0.164,
+        0.2325
+      ],
+      "characters": 3787,
+      "cer": 0.7856,
+      "wer": 0.9445,
+      "bow_f1": 0.9637,
+      "lines": 58,
+      "words_per_line": 9.86
+    },
+    {
+      "document": "fr-notice-3col",
+      "parser": "LlamaParse",
+      "status": "not run (--local-only)"
+    },
+    {
+      "document": "fr-notice-3col",
+      "parser": "AWS Textract",
+      "status": "not run (--local-only)"
+    },
+    {
+      "document": "fr-table",
+      "parser": "PyPDF",
+      "status": "run",
+      "seconds_median": 0.0412,
+      "seconds_runs": [
+        0.0482,
+        0.0412,
+        0.0443,
+        0.0363,
+        0.0372
+      ],
+      "characters": 6078,
+      "cer": 0.0393,
+      "wer": 0.0472,
+      "bow_f1": 0.9809,
+      "lines": 121,
+      "words_per_line": 6.15,
+      "table": {
+        "rows_intact": 15,
+        "rows_total": 21,
+        "cells_found": 84,
+        "cells_total": 84
+      }
+    },
+    {
+      "document": "fr-table",
+      "parser": "PDFMiner",
+      "status": "run",
+      "seconds_median": 0.1432,
+      "seconds_runs": [
+        0.1447,
+        0.1432,
+        0.1338,
+        0.1646,
+        0.1281
+      ],
+      "characters": 6224,
+      "cer": 0.136,
+      "wer": 0.1903,
+      "bow_f1": 0.9664,
+      "lines": 192,
+      "words_per_line": 4.01,
+      "table": {
+        "rows_intact": 0,
+        "rows_total": 21,
+        "cells_found": 80,
+        "cells_total": 84
+      }
+    },
+    {
+      "document": "fr-table",
+      "parser": "PDFPlumber",
+      "status": "run",
+      "seconds_median": 0.2858,
+      "seconds_runs": [
+        0.2767,
+        0.3159,
+        0.2858,
+        0.2702,
+        0.3146
+      ],
+      "characters": 5945,
+      "cer": 0.4326,
+      "wer": 0.4958,
+      "bow_f1": 0.9676,
+      "lines": 80,
+      "words_per_line": 9.14,
+      "table": {
+        "rows_intact": 21,
+        "rows_total": 21,
+        "cells_found": 78,
+        "cells_total": 84
+      }
+    },
+    {
+      "document": "fr-table",
+      "parser": "LlamaParse",
+      "status": "not run (--local-only)"
+    },
+    {
+      "document": "fr-table",
+      "parser": "AWS Textract",
+      "status": "not run (--local-only)"
+    },
+    {
+      "document": "naca-scan",
+      "parser": "PyPDF",
+      "status": "run",
+      "seconds_median": 0.2045,
+      "seconds_runs": [
+        0.2045,
+        0.2198,
+        0.1936,
+        0.1941,
+        0.2166
+      ],
+      "characters": 0,
+      "cer": 1.0,
+      "wer": 1.0,
+      "bow_f1": 0.0,
+      "lines": 0,
+      "words_per_line": 0.0
+    },
+    {
+      "document": "naca-scan",
+      "parser": "PDFMiner",
+      "status": "run",
+      "seconds_median": 0.0968,
+      "seconds_runs": [
+        0.0968,
+        0.0954,
+        0.1033,
+        0.0978,
+        0.0968
+      ],
+      "characters": 1,
+      "cer": 1.0,
+      "wer": 1.0,
+      "bow_f1": 0.0,
+      "lines": 0,
+      "words_per_line": 0.0
+    },
+    {
+      "document": "naca-scan",
+      "parser": "PDFPlumber",
+      "status": "run",
+      "seconds_median": 0.1038,
+      "seconds_runs": [
+        0.1219,
+        0.1149,
+        0.1,
+        0.1038,
+        0.0916
+      ],
+      "characters": 0,
+      "cer": 1.0,
+      "wer": 1.0,
+      "bow_f1": 0.0,
+      "lines": 0,
+      "words_per_line": 0.0
+    },
+    {
+      "document": "naca-scan",
+      "parser": "LlamaParse",
+      "status": "not run (--local-only)"
+    },
+    {
+      "document": "naca-scan",
+      "parser": "AWS Textract",
+      "status": "not run (--local-only)"
+    }
+  ]
+}
