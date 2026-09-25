@@ -1,8 +1,10 @@
-"""PDFPlumber — local, layout-aware, understands table structure."""
+"""PDFPlumber — local, character-position aware; default extract_text()."""
 import pdfplumber
 
 NAME = "PDFPlumber"
 KIND = "local"
+PACKAGE = "pdfplumber"
+REQUIRES: list[str] = []
 
 
 def extract(pdf_path: str) -> str:

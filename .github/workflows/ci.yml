@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10
+
+      - name: Install the locked dependencies (cloud SDKs included, never called)
+        run: uv sync --locked --extra cloud
+
+      - name: Unit tests (scorer, local adapters, cloud gating)
+        run: uv run pytest -q
+
+      - name: Smoke benchmark, and check the committed results reproduce
+        # Re-runs the local parsers over the whole corpus and fails if any
+        # quality metric differs from results/results.json. Timings are ignored.
+        run: uv run python run_benchmark.py --local-only --repeats 1 --out "$RUNNER_TEMP/results" --check results/results.json

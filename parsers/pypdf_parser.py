@@ -1,8 +1,10 @@
-"""PyPDF — pure-Python, local, text-layer only."""
+"""PyPDF — pure-Python, local, text-layer only. Default extract_text() settings."""
 from pypdf import PdfReader
 
 NAME = "PyPDF"
 KIND = "local"
+PACKAGE = "pypdf"
+REQUIRES: list[str] = []
 
 
 def extract(pdf_path: str) -> str:

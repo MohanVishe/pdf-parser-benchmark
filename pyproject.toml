@@ -1,0 +1,38 @@
+[project]
+name = "pdf-parser-benchmark"
+version = "0.2.0"
+description = "A small, scored benchmark harness for PDF text extraction: PyPDF, PDFPlumber and PDFMiner locally, LlamaParse and AWS Textract as optional cloud parsers."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    # Local parsers (always run)
+    "pypdf==6.19.0",
+    "pdfplumber==0.11.10",
+    "pdfminer.six==20260107",
+    # Scoring
+    "jiwer==4.0.0",
+    # Config
+    "python-dotenv==1.2.3",
+]
+
+[project.optional-dependencies]
+# Cloud parsers: installed with `uv sync --extra cloud`, and each one is still
+# skipped unless its credentials are set and --local-only is not passed.
+cloud = [
+    "llama-cloud==2.16.0",
+    "boto3==1.43.102",
+    "pymupdf==1.28.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

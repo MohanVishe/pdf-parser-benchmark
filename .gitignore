@@ -1,6 +1,8 @@
 __pycache__/
 *.py[cod]
-venv/
 .venv/
+venv/
 .env
-results/
+.pytest_cache/
+# ad-hoc (unscored) runs: python run_benchmark.py --input my_pdfs/ --out out/
+out/
