@@ -1,0 +1,246 @@
+{
+  "reference_rules": "Each reference is a hand-verified transcription of everything a reader sees on the scoped pages, in reading order (multi-column: each column top to bottom, left to right; tables: row by row, cells left to right; running header first). Text inside content images is included (the sample's banner and handwriting, the scanned page); logos, seals and invisible (white) text are not. Line-end hyphens and URLs broken across lines are kept as printed, with the break as one space. Line breaks are otherwise not significant: scoring collapses all whitespace.",
+  "documents": [
+    {
+      "id": "multilingual-sample",
+      "file": "multilingual-sample.pdf",
+      "reference": "multilingual-sample.reference.txt",
+      "title": "Multilingual stress sample (10 languages, emoji, table, image, handwriting)",
+      "categories": [
+        "multilingual",
+        "rtl",
+        "indic",
+        "table",
+        "image-only-text"
+      ],
+      "pages": "1-2 (all)",
+      "source": "Authored for this repository in Google Docs (exported with Skia/PDF). Page 2 holds two images: a screenshot of a public website banner and a handwriting sample.",
+      "licence": "MIT (this repository)",
+      "checks": {
+        "tables": [
+          [
+            [
+              "Name",
+              "Occupation"
+            ],
+            [
+              "John",
+              "Engineer"
+            ],
+            [
+              "Emily",
+              "Manager"
+            ],
+            [
+              "Sarah",
+              "Designer"
+            ]
+          ]
+        ],
+        "rtl": {
+          "Arabic": "الثعلب البني السريع يقفز فوق الكلب الكسول.",
+          "Urdu": "تیز بھوری لومڑی سست کتے کے اوپر کودتا ہے۔"
+        },
+        "indic": {
+          "Hindi": "तेज भूरा लोमड़ी सुस्त कुत्ते पर कूदता है।",
+          "Bengali": "দ্রুত বাদামি খরগোশ অলস কুকুরের উপর লাফায়।"
+        }
+      },
+      "image_only_text": [
+        "AI DEMOS FutureSmart AI Blog Submit Tool Contact us Explore Socials Discover Best AI Tools with Video Demos",
+        "Testing PDF to text extracting tools for different conditions."
+      ]
+    },
+    {
+      "id": "fr-notice-3col",
+      "file": "fr-notice-3col.pdf",
+      "reference": "fr-notice-3col.reference.txt",
+      "title": "Federal Register Vol. 91 No. 185, p. 61023 (2026-09-25), FR Doc. 2026-19690 and the end of the preceding notice",
+      "categories": [
+        "multi-column"
+      ],
+      "pages": "p. 61023 (the whole source PDF)",
+      "source_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-25/pdf/2026-19690.pdf",
+      "source_sha256": "e9c008e95913f017afa4936cb038a9c86e0066b5d82ee7d3347a5b9ed0ee0da8",
+      "source_pages": [
+        1
+      ],
+      "transform": "page_subset",
+      "licence": "Public domain: work of the U.S. Government (17 U.S.C. 105)",
+      "licence_url": "https://www.govinfo.gov/about/policies",
+      "note": "The page also carries white (invisible) typesetting slugs and a GPO seal image; both are excluded from the reference, so a parser that emits the invisible text is charged for the insertion."
+    },
+    {
+      "id": "fr-table",
+      "file": "fr-table.pdf",
+      "reference": "fr-table.reference.txt",
+      "title": "Federal Register Vol. 91 No. 9, p. 1449 (2026-01-14), FR Doc. 2026-00535 Table 1 (continued) and the start of the NMFS Olympic Peninsula steelhead finding (Docket No. 260109–0027)",
+      "categories": [
+        "table",
+        "multi-column"
+      ],
+      "pages": "p. 1449 (source PDF page 3 of 3)",
+      "source_url": "https://www.govinfo.gov/content/pkg/FR-2026-01-14/pdf/2026-00535.pdf",
+      "source_sha256": "c9b484a76b5de70d7b74530ee0b47810b465e196194a2da6e07c9237d73ed43d",
+      "source_pages": [
+        3
+      ],
+      "transform": "page_subset",
+      "licence": "Public domain: work of the U.S. Government (17 U.S.C. 105)",
+      "licence_url": "https://www.govinfo.gov/about/policies",
+      "checks": {
+        "tables": [
+          [
+            [
+              "49 U.S.C. 14901(e)",
+              "Minimum penalty for each additional violation",
+              "9,970",
+              "10,243"
+            ],
+            [
+              "49 U.S.C. 14903(a)",
+              "Maximum penalty for undercharge or overcharge of tariff rate, for each\nviolation.",
+              "199,408",
+              "204,862"
+            ],
+            [
+              "49 U.S.C. 14904(a)",
+              "For first violation, rebates at less than the rate in effect",
+              "398",
+              "409"
+            ],
+            [
+              "49 U.S.C. 14904(a)",
+              "For all subsequent violations",
+              "500",
+              "514"
+            ],
+            [
+              "49 U.S.C. 14904(b)(1)",
+              "Maximum penalty for first violation for undercharges by freight for-\nwarders.",
+              "998",
+              "1,025"
+            ],
+            [
+              "49 U.S.C. 14904(b)(1)",
+              "Maximum penalty for subsequent violations",
+              "3,988",
+              "4,097"
+            ],
+            [
+              "49 U.S.C. 14904(b)(2)",
+              "Maximum penalty for other first violations under sec. 13702",
+              "998",
+              "1,025"
+            ],
+            [
+              "49 U.S.C. 14904(b)(2)",
+              "Maximum penalty for subsequent violations.",
+              "3,988",
+              "4,097"
+            ],
+            [
+              "49 U.S.C. 14905(a)",
+              "Maximum penalty for each knowing violation of sec. 14103(a), and\nknowingly authorizing, consenting to, or permitting a violation of sec.\n14103(a) or (b).",
+              "19,941",
+              "20,486"
+            ],
+            [
+              "49 U.S.C. 14906",
+              "Minimum penalty for first attempt to evade regulation",
+              "2,730",
+              "2,805"
+            ],
+            [
+              "49 U.S.C. 14906",
+              "Minimum amount for each subsequent attempt to evade regulation",
+              "6,823",
+              "7,010"
+            ],
+            [
+              "49 U.S.C. 14907",
+              "Maximum penalty for recordkeeping/reporting violations",
+              "9,970",
+              "10,243"
+            ],
+            [
+              "49 U.S.C. 14908(a)(2)",
+              "Maximum penalty for violation of sec. 14908(a)(1)",
+              "3,988",
+              "4,097"
+            ],
+            [
+              "49 U.S.C. 14910",
+              "When another civil penalty is not specified under this part, for each\nviolation, for each day.",
+              "998",
+              "1,025"
+            ],
+            [
+              "49 U.S.C. 14915(a)(1)–(2)",
+              "Minimum penalty for holding a household goods shipment hostage, for\neach day.",
+              "15,846",
+              "16,279"
+            ],
+            [
+              "49 U.S.C. 14916(c)(1)",
+              "Maximum penalty for each knowing violation under sec. 14916(a) for\nunlawful brokerage activities.",
+              "13,647",
+              "14,020"
+            ],
+            [
+              "49 U.S.C. 16101(a)",
+              "Maximum penalty for violation of this part, for each day",
+              "9,970",
+              "10,243"
+            ],
+            [
+              "49 U.S.C. 16101(b)(1), (4)",
+              "For each recordkeeping violation under sec. 15722, each day",
+              "998",
+              "1,025"
+            ],
+            [
+              "49 U.S.C. 16101(b)(2), (4)",
+              "For each inspection violation liable under sec. 15722, each day",
+              "198",
+              "203"
+            ],
+            [
+              "49 U.S.C. 16101(b)(3)–(4)",
+              "For each reporting violation under sec. 15723, each day",
+              "198",
+              "203"
+            ],
+            [
+              "49 U.S.C. 16103(a)",
+              "Maximum penalty for improper disclosure of information",
+              "1,992",
+              "2,046"
+            ]
+          ]
+        ],
+        "table_note": "Body rows of Table 1 only; the two-level header and the 'Pipeline Carrier' section row are excluded from the row check."
+      },
+      "note": "The page also carries white (invisible) typesetting slugs and a GPO seal image; both are excluded from the reference, so a parser that emits the invisible text is charged for the insertion."
+    },
+    {
+      "id": "naca-scan",
+      "file": "naca-tn112-scan.pdf",
+      "reference": "naca-tn112-scan.reference.txt",
+      "title": "NACA Technical Note No. 112 (NACA-TN-112), The N.A.C.A. Three-Component Accelerometer (H. J. E. Reid, 1922), page 2: a typewritten page scanned to JPEG",
+      "categories": [
+        "scanned"
+      ],
+      "pages": "source PDF page 2 of 9",
+      "source_url": "https://ntrs.nasa.gov/api/citations/19930080884/downloads/19930080884.pdf",
+      "source_sha256": "1e83bf32cb3752a0aa696edeef7982f6441da4749faea6c3dfbeea05c6aa71ff",
+      "source_pages": [
+        2
+      ],
+      "transform": "remove_text_layer",
+      "licence": "Public domain: work of the U.S. Government (NACA); NTRS distribution PUBLIC, GOV_PUBLIC_USE_PERMITTED",
+      "licence_url": "https://ntrs.nasa.gov/citations/19930080884",
+      "image_only_text": "all"
+    }
+  ]
+}
